@@ -14,23 +14,23 @@
 
 ### Jenkins Pipeline View
 > _Add your Jenkins pipeline screenshot here_
-
-![Jenkins Pipeline](screenshots/jenkins-pipeline.png)
+/
+![Jenkins Pipeline](images/jenkins-pipeline.png)
 
 ### Pipeline Stages Running
 > _Add your pipeline stages screenshot here_
 
-![Pipeline Stages](screenshots/pipeline-stages.png)
+![Pipeline Stages](images/pipeline-stages.png)
 
 ### Docker Container Running
 > _Add your docker ps output screenshot here_
 
-![Docker Running](screenshots/docker-running.png)
+![Docker Running](images/docker-running.png)
 
 ### Live Website
 > _Add your deployed website screenshot here_
 
-![Website Live](screenshots/website-live.png)
+![Website Live](images/website-live.png)
 
 ---
 
