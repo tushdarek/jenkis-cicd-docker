@@ -3,19 +3,21 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
+        stage('Checkout Code') {
             steps {
                 git 'https://github.com/tushdarek/jenkis-cicd-docker.git'
             }
         }
 
-        stage('Check Docker') {
+        stage('Install Dependencies') {
             steps {
                 sh '''
+                echo "Updating packages..."
+                sudo apt update -y
+
+                echo "Installing Docker if not present..."
                 if ! command -v docker &> /dev/null
                 then
-                    echo "Installing Docker..."
-                    sudo apt update
                     sudo apt install docker.io -y
                     sudo systemctl start docker
                     sudo systemctl enable docker
@@ -26,18 +28,35 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Verify Docker Installation') {
             steps {
-                sh 'docker build -t mywebsite .'
+                sh '''
+                docker --version
+                '''
             }
         }
 
-        stage('Run Docker Container') {
+        stage('Build Docker Image') {
             steps {
                 sh '''
-                docker stop mywebsite || true
-                docker rm mywebsite || true
-                docker run -d -p 80:80 --name mywebsite mywebsite
+                docker build -t parallax-website .
+                '''
+            }
+        }
+
+        stage('Stop Old Container') {
+            steps {
+                sh '''
+                docker stop parallax || true
+                docker rm parallax || true
+                '''
+            }
+        }
+
+        stage('Run Container') {
+            steps {
+                sh '''
+                docker run -d -p 80:80 --name parallax parallax-website
                 '''
             }
         }
