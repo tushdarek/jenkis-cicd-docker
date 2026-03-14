@@ -375,20 +375,6 @@ Website is live and updated ✅
 
 ---
 
-## 📝 How to Add Screenshots
-
-1. Create a `screenshots/` folder in your repository
-2. Take screenshots of:
-   - Jenkins Dashboard showing the pipeline
-   - Pipeline build stages (all green)
-   - Docker container running (`docker ps` output)
-   - The live website in the browser
-3. Save them as:
-   - `screenshots/jenkins-pipeline.png`
-   - `screenshots/pipeline-stages.png`
-   - `screenshots/docker-running.png`
-   - `screenshots/website-live.png`
-4. Push to GitHub — they will auto-display in this README
 
 ---
 
